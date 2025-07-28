@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-bg: #0f0f23;
+  --secondary-bg: #1a1a2e;
+  --card-bg: #16213e;
+  --accent-purple: #6c5ce7;
+  --accent-blue: #00cec9;
+  --accent-pink: #fd79a8;
+  --accent-orange: #fdcb6e;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a9c0;
+  --text-muted: #6c7293;
+  --gradient-1: linear-gradient(135deg, #6c5ce7, #00cec9);
+  --gradient-2: linear-gradient(135deg, #fd79a8, #fdcb6e);
+  --gradient-3: linear-gradient(135deg, #00cec9, #6c5ce7);
+  --shadow: 0 10px 30px rgba(108, 92, 231, 0.1);
+  --shadow-hover: 0 20px 60px rgba(108, 92, 231, 0.2);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background: var(--primary-bg);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.portfolio-content {
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  text-shadow: var(--shadow);
+}
+
+#accessMyGit {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: var(--gradient-1);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Navigation */
+.nav-bar-content {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  margin-left: 10rem;
+  position: fixed;
+  top: 0;
+  width: 70%;
+  background: rgba(15, 15, 35, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(108, 92, 231, 0.2);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.intro-content,
+.about-me-content,
+.skills-content,
+.projects-content {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-title,
+.about-title,
+.skill-title,
+.project-title {
+  font-size: 30px;
+  letter-spacing: 0.5px;
+}
+
+#myProject {
+  width: 30%;
+  height: 50px;
+  background: var(--gradient-1);
+  border-radius: 10px;
+  margin-top: 2rem;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+#myProject:hover {
+  background: var(--gradient-1);
+  box-shadow: 0 20px 60px rgba(108, 92, 231, 0.2);
+}
+
+.intro-content-card {
+  display: flex;
+  margin: 2rem;
+  gap: 2rem;
+}
+
+.first-card,
+.second-card,
+.third-card {
+  width: 300px;
+  height: 100px;
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.intro-content-card p {
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+.about-button,
+.skill-button,
+.project-button {
+  border: none;
+  height: 50px;
+  width: 180px;
+  border-radius: 10px;
+  background: var(--secondary-bg);
+  color: var(--accent-blue);
+  font-size: 15px;
+  opacity: 0.5;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.about-container,
+.skill-container,
+.intro-container,
+.project-container {
+  margin-top: 2rem;
+  color: grey;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.project-card {
+  text-align: center;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  border-radius: 10px;
+  height: 100%;
+  width: 70%;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-purple);
+  box-shadow: var(--shadow);
+}
+
+.icon {
+  background: var(--gradient-1);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 90px;
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  padding: 1rem;
+}
+
+.icon-bis {
+  background: var(--gradient-2);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 90px;
+  padding: 1rem;
+}
+
+.text h2 {
+  color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.text {
+  color: grey;
+  background: var(--card-bg);
+  padding: 1rem;
+  text-align: start;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button {
+  background: var(--card-bg);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.card-button,
+#openProject,
+#openCode {
+  background: var(--card-bg);
+  color: var(--accent-blue);
+  border-radius: 10px;
+  height: 40px;
+  width: 90px;
+  margin: 1rem;
+}
+
+.skill-card {
+  text-align: center;
+  margin-top: 2rem;
+  background: var(--card-bg);
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  border-radius: 10px;
+  height: 100%;
+  width: 70%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-purple);
+  box-shadow: var(--shadow);
+}
+
+.icon-skill {
+  background: var(--gradient-1);
+  font-size: 90px;
+  width: 120px;
+  border-radius: 10px;
+  margin: 2rem;
+  margin-left: 22rem;
+}
+
+.icon-skill-bis {
+  background: var(--gradient-2);
+  font-size: 90px;
+  width: 120px;
+  border-radius: 10px;
+  margin: 2rem;
+  margin-left: 22rem;
+}
