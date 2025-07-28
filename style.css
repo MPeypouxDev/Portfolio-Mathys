@@ -35,6 +35,62 @@ body {
   width: 100%;
 }
 
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.floating-elements {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.element {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.element-1 {
+  width: 100px;
+  height: 100px;
+  background: var(--gradient-1);
+  top: 20%;
+  left: 10%;
+  opacity: 0.1;
+}
+
+.element-2 {
+  width: 150px;
+  height: 150px;
+  background: var(--gradient-2);
+  top: 60%;
+  right: 15%;
+  opacity: 0.1;
+  animation-delay: 2s;
+}
+
+.element-3 {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-3);
+  bottom: 30%;
+  left: 20%;
+  opacity: 0.1;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
 .portfolio-content {
   box-shadow: var(--shadow);
   display: flex;
