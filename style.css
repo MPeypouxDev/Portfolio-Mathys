@@ -241,7 +241,30 @@ body {
   border: 2px solid rgba(108, 92, 231, 0.2);
 }
 
-.about-container,
+.about-image {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+}
+
+.about-image img {
+  height: 500px;
+  position: relative;
+  left: 0;
+  margin-top: 2rem;
+}
+
+.about-container {
+  color: grey;
+  font-size: 20px;
+  width: 30%;
+  margin-left: 5rem;
+  margin-top: 6rem;
+  text-align: center;
+  text-shadow: var(--shadow);
+}
+
+
 .skill-container,
 .intro-container,
 .project-container {
