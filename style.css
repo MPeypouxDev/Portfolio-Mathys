@@ -14,33 +14,40 @@ html {
   --secondary-bg: rgba(26, 26, 46, 0.9);
   --card-bg: rgba(22, 33, 62, 0.95);
   --glass-bg: rgba(255, 255, 255, 0.1);
-  
+
   /* Accents */
   --accent-purple: #8b5cf6;
   --accent-blue: #06b6d4;
   --accent-pink: #ec4899;
   --accent-orange: #f59e0b;
   --accent-green: #10b981;
-  
+
   /* Texte optimisé pour le contraste */
   --text-primary: #ffffff;
   --text-secondary: #e2e8f0;
   --text-muted: #94a3b8;
   --text-accent: #60a5fa;
-  
+
   /* Gradients */
   --gradient-1: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
   --gradient-2: linear-gradient(135deg, #ec4899 0%, #f59e0b 100%);
   --gradient-3: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
-  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-  
+  --gradient-glass: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+
   /* Ombres */
-  --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
-  --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+    0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.4),
+    0 10px 10px -5px rgba(0, 0, 0, 0.1);
   --shadow-glow: 0 0 20px rgba(139, 92, 246, 0.3);
   --shadow-text: 2px 2px 8px rgba(0, 0, 0, 0.8);
-  
+
   /* Bordures glass effect */
   --border-glass: 1px solid rgba(255, 255, 255, 0.2);
   --border-accent: 2px solid rgba(139, 92, 246, 0.4);
@@ -48,7 +55,8 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   font-weight: 400;
   background-image: url("https://i.postimg.cc/05hjmN57/generated-image-3d5b2ffb-ff6f-4db8-8127-30da7803b6c4.jpg");
   background-size: cover;
@@ -62,7 +70,7 @@ body {
 
 /* Overlay pour améliorer la lisibilité */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
@@ -132,7 +140,7 @@ body::before {
 }
 
 .nav-links a::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: var(--gradient-glass);
@@ -144,7 +152,7 @@ body::before {
 
 .nav-links a:hover {
   color: var(--text-primary);
-   background: var(--gradient-1);
+  background: var(--gradient-1);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
@@ -170,7 +178,6 @@ body::before {
 
 /* Titres avec style glass */
 .intro-title h1 {
-  /* font-weight: 700; */
   text-align: center;
   margin-bottom: 2rem;
   color: var(--text-primary);
@@ -181,7 +188,7 @@ body::before {
 #myProject {
   padding: 1rem 2rem;
   margin-top: 2rem;
-  background: var(--gradient-1);
+  background: var(--glass-bg);
   border: var(--border-glass);
   border-radius: 12px;
   font-size: 16px;
@@ -198,18 +205,23 @@ body::before {
 }
 
 #myProject::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 50%
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 #myProject:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-large), var(--shadow-glow);
-  border-color: rgba(139, 92, 246, 0.6);
+  content: "";
+  background: var(--gradient-1);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
 }
 
 #myProject:hover::before {
@@ -245,7 +257,7 @@ body::before {
 .first-card::before,
 .second-card::before,
 .third-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -264,7 +276,6 @@ body::before {
 .intro-content-card p {
   text-transform: uppercase;
   margin-top: 0.5rem;
-  color: var(--text-muted);
   font-size: 0.9rem;
   letter-spacing: 0.5px;
 }
@@ -279,7 +290,7 @@ body::before {
   border-radius: 25px;
   height: 50px;
   width: 200px;
-  color: var(--text-accent);
+  color: white;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 2rem;
@@ -369,7 +380,7 @@ body::before {
 
 .project-card::before,
 .skill-card::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: var(--gradient-glass);
@@ -460,7 +471,7 @@ body::before {
   backdrop-filter: blur(10px);
   border: var(--border-glass);
   border-radius: 8px;
-  color: var(--text-accent);
+  color: white;
   padding: 0.5rem 1rem;
   font-size: 12px;
   font-weight: 500;
@@ -495,41 +506,41 @@ body::before {
   .nav-container {
     padding: 0 1rem;
   }
-  
+
   .nav-links {
     gap: 1rem;
   }
-  
+
   .nav-links a {
     font-size: 0.9rem;
     padding: 0.5rem;
   }
-  
+
   .intro-content-card {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .about-image {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .about-container {
     min-width: auto;
   }
-  
+
   .icon-skill,
   .icon-skill-bis {
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .project-card,
   .skill-card {
     width: 95%;
   }
-  
+
   #myProject {
     width: 80%;
     max-width: 300px;
@@ -543,27 +554,369 @@ body::before {
   .projects-content {
     margin: 2rem 1rem;
   }
-  
+
   .first-card,
   .second-card,
   .third-card {
     width: 100%;
     max-width: 280px;
   }
-  
+
   .about-container {
     padding: 1.5rem;
     font-size: 16px;
   }
-  
+
   .button {
     padding: 1rem;
   }
-  
+
   .card-button,
   #openProject,
   #openCode {
     font-size: 11px;
     padding: 0.5rem 0.75rem;
   }
+}
+
+.footer-portfolio {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-top: var(--border-glass);
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+/* Effet de brillance en haut du footer */
+.footer-portfolio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-1);
+  opacity: 0.8;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo et branding */
+.footer-logo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  text-shadow: none;
+}
+
+.footer-tagline {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: var(--shadow-text);
+  line-height: 1.6;
+}
+
+.footer-location {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-shadow: var(--shadow-text);
+}
+
+.location-icon {
+  font-size: 1.2rem;
+}
+
+/* Call-to-Action principal */
+.footer-cta {
+  margin: 2rem 0 3rem;
+}
+
+.cta-button {
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border: var(--border-glass);
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+.cta-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.cta-button:hover {
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+}
+
+.cta-button:hover::before {
+  opacity: 1;
+}
+
+/* Réseaux sociaux avec animations */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  width: 60px;
+  height: 60px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border: var(--border-glass);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--text-accent);
+  font-size: 1.8rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.05);
+  color: white;
+  border-color: rgba(139, 92, 246, 0.6);
+  box-shadow: var(--shadow-glow);
+}
+
+.social-link:hover::before {
+  opacity: 1;
+}
+
+/* Ajout des tooltips pour les réseaux sociaux */
+.social-link::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.social-link:hover::after {
+  opacity: 1;
+}
+
+/* Section compétences en aperçu */
+.skills-preview {
+  margin: 3rem 0;
+}
+
+.contact-info {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-item {
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border: var(--border-glass);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  width: 250px;
+  margin: 2rem;
+}
+
+.contact-item::before {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+.contact-item:hover::before {
+  opacity: 1;
+}
+
+.contact-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.contact-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.contact-value {
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-shadow: var(--shadow-text);
+}
+
+.contact-value a {
+  color: var(--text-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-value a:hover {
+  color: var(--accent-purple);
+}
+
+/* Séparateur élégant */
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(139, 92, 246, 0.5),
+    transparent
+  );
+  margin: 3rem 0;
+}
+
+/* Pied de page avec liens */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-copyright {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  text-shadow: var(--shadow-text);
+}
+
+.footer-status {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: var(--border-glass);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  color: var(--text-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-green);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+  text-shadow: var(--shadow-text);
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-1);
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--text-accent);
+}
+
+.footer-links a:hover::after {
+  width: 100%;
 }
