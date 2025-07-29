@@ -9,26 +9,19 @@ html {
 }
 
 :root {
-  /* Couleurs principales */
   --primary-bg: rgba(15, 15, 35, 0.85);
   --secondary-bg: rgba(26, 26, 46, 0.9);
   --card-bg: rgba(22, 33, 62, 0.95);
   --glass-bg: rgba(255, 255, 255, 0.1);
-
-  /* Accents */
   --accent-purple: #8b5cf6;
   --accent-blue: #06b6d4;
   --accent-pink: #ec4899;
   --accent-orange: #f59e0b;
   --accent-green: #10b981;
-
-  /* Texte optimisé pour le contraste */
   --text-primary: #ffffff;
   --text-secondary: #e2e8f0;
   --text-muted: #94a3b8;
   --text-accent: #60a5fa;
-
-  /* Gradients */
   --gradient-1: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
   --gradient-2: linear-gradient(135deg, #ec4899 0%, #f59e0b 100%);
   --gradient-3: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
@@ -37,8 +30,6 @@ html {
     rgba(255, 255, 255, 0.1) 0%,
     rgba(255, 255, 255, 0.05) 100%
   );
-
-  /* Ombres */
   --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
@@ -47,8 +38,6 @@ html {
     0 10px 10px -5px rgba(0, 0, 0, 0.1);
   --shadow-glow: 0 0 20px rgba(139, 92, 246, 0.3);
   --shadow-text: 2px 2px 8px rgba(0, 0, 0, 0.8);
-
-  /* Bordures glass effect */
   --border-glass: 1px solid rgba(255, 255, 255, 0.2);
   --border-accent: 2px solid rgba(139, 92, 246, 0.4);
   --border-hover: 2px solid rgba(139, 92, 246, 0.8);
@@ -161,7 +150,6 @@ body::before {
   opacity: 1;
 }
 
-/* Sections principales */
 .intro-content,
 .about-me-content,
 .skills-content,
@@ -176,7 +164,6 @@ body::before {
   margin-right: auto;
 }
 
-/* Titres avec style glass */
 .intro-title h1 {
   text-align: center;
   margin-bottom: 2rem;
@@ -184,7 +171,6 @@ body::before {
   text-shadow: var(--shadow-text);
 }
 
-/* Bouton principal redesigné */
 #myProject {
   padding: 1rem 2rem;
   margin-top: 2rem;
@@ -228,7 +214,6 @@ body::before {
   opacity: 1;
 }
 
-/* Cards statistiques avec glass effect */
 .intro-content-card {
   display: flex;
   gap: 2rem;
@@ -280,7 +265,6 @@ body::before {
   letter-spacing: 0.5px;
 }
 
-/* Boutons de section */
 .about-button,
 .skill-button,
 .project-button {
@@ -310,7 +294,6 @@ body::before {
   box-shadow: var(--shadow-medium);
 }
 
-/* Section À propos */
 .about-image {
   width: 100%;
   display: flex;
@@ -350,7 +333,6 @@ body::before {
   box-shadow: var(--shadow-medium);
 }
 
-/* Conteneurs de texte */
 .skill-container,
 .intro-container,
 .project-container {
@@ -362,7 +344,6 @@ body::before {
   text-shadow: var(--shadow-text);
 }
 
-/* Cards projets et compétences */
 .project-card,
 .skill-card {
   background: var(--glass-bg);
@@ -402,7 +383,6 @@ body::before {
   opacity: 1;
 }
 
-/* Icônes des cards */
 .icon-skill,
 .icon-skill-bis {
   width: 100px;
@@ -424,13 +404,11 @@ body::before {
   background: var(--gradient-2);
 }
 
-/* Images des cards */
 .image img {
   height: 100%;
   width: 100%;
 }
 
-/* Texte des cards */
 .text {
   background: var(--glass-bg);
   padding: 2rem;
@@ -451,7 +429,6 @@ body::before {
   font-size: 16px;
 }
 
-/* Boutons des cards */
 .button {
   background: var(--glass-bg);
   text-shadow: var(--shadow-text);
@@ -591,7 +568,6 @@ body::before {
   margin-top: auto;
 }
 
-/* Effet de brillance en haut du footer */
 .footer-portfolio::before {
   content: "";
   position: absolute;
@@ -610,7 +586,6 @@ body::before {
   z-index: 2;
 }
 
-/* Logo et branding */
 .footer-logo {
   font-size: 2.5rem;
   font-weight: 800;
@@ -648,7 +623,6 @@ body::before {
   font-size: 1.2rem;
 }
 
-/* Call-to-Action principal */
 .footer-cta {
   margin: 2rem 0 3rem;
 }
@@ -693,7 +667,6 @@ body::before {
   opacity: 1;
 }
 
-/* Réseaux sociaux avec animations */
 .social-links {
   display: flex;
   justify-content: center;
@@ -741,7 +714,6 @@ body::before {
   opacity: 1;
 }
 
-/* Ajout des tooltips pour les réseaux sociaux */
 .social-link::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -762,11 +734,6 @@ body::before {
 
 .social-link:hover::after {
   opacity: 1;
-}
-
-/* Section compétences en aperçu */
-.skills-preview {
-  margin: 3rem 0;
 }
 
 .contact-info {
@@ -833,7 +800,6 @@ body::before {
   color: var(--accent-purple);
 }
 
-/* Séparateur élégant */
 .footer-divider {
   height: 1px;
   background: linear-gradient(
@@ -845,7 +811,6 @@ body::before {
   margin: 3rem 0;
 }
 
-/* Pied de page avec liens */
 .footer-bottom {
   display: flex;
   justify-content: space-between;
