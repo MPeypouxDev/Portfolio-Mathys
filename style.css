@@ -443,7 +443,7 @@ body::before {
 
 .card-button,
 #openProject,
-#openCode {
+#openGit {
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
   border: var(--border-glass);
@@ -459,7 +459,7 @@ body::before {
 }
 
 #openProject,
-#openCode {
+#openGit {
   background: var(--gradient-1);
   color: white;
   font-weight: 600;
@@ -473,7 +473,7 @@ body::before {
 }
 
 #openProject:hover,
-#openCode:hover {
+#openGit:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-medium);
 }
