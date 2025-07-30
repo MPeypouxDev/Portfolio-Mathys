@@ -397,11 +397,11 @@ body::before {
 }
 
 .icon-skill {
-  background: var(--gradient-1);
+  background: var(--glass-bg);
 }
 
 .icon-skill-bis {
-  background: var(--gradient-2);
+  background: var(--glass-bg);
 }
 
 .image img {
