@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initErrorHandling();
   initMusicButton();
   restoreMusicFromStorage();
+  initBackToTop();
 });
 
 function restoreMusicFromStorage() {
@@ -820,5 +821,50 @@ function initSmoothScroll() {
         });
       }
     });
+  });
+}
+
+function goToHome() {  
+    window.location.href = '/entry.html';
+};
+
+function initBackToTop() {
+  const backToTopBtn = document.getElementById('backToTop');
+  
+  if (!backToTopBtn) {
+    console.error("Bouton retour en haut non trouvé");
+    return;
+  }
+
+  // Afficher/masquer le bouton selon le scroll
+  window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > 300) { // Apparaît après 300px de scroll
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  });
+
+  // Action du clic
+  backToTopBtn.addEventListener('click', function() {
+    // Animation du bouton
+    this.style.transform = 'scale(0.9)';
+    
+    setTimeout(() => {
+      this.style.transform = '';
+    }, 150);
+
+    // Scroll fluide vers le haut
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    // Optionnel : Masquer le bouton immédiatement
+    setTimeout(() => {
+      this.classList.remove('visible');
+    }, 500);
   });
 }
