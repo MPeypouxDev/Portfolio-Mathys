@@ -1,0 +1,130 @@
+// ==========================================
+// RESET & BASE STYLES
+// ==========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+
+// === HTML BASE ===
+html {
+  scroll-behavior: smooth;
+}
+
+// === UNIVERSAL RESET ===
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// === ROOT VARIABLES ===
+:root {
+  // Colors
+  --primary-bg: #{get-color('primary-bg')};
+  --secondary-bg: #{get-color('secondary-bg')};
+  --card-bg: #{get-color('card-bg')};
+  --glass-bg: #{get-color('glass-bg')};
+  --accent-purple: #{get-color('accent-purple')};
+  --accent-blue: #{get-color('accent-blue')};
+  --accent-pink: #{get-color('accent-pink')};
+  --accent-orange: #{get-color('accent-orange')};
+  --accent-green: #{get-color('accent-green')};
+  --text-primary: #{get-color('text-primary')};
+  --text-secondary: #{get-color('text-secondary')};
+  --text-muted: #{get-color('text-muted')};
+  --text-accent: #{get-color('text-accent')};
+  
+  // Gradients
+  --gradient-1: #{get-gradient('primary')};
+  --gradient-2: #{get-gradient('secondary')};
+  --gradient-3: #{get-gradient('tertiary')};
+  --gradient-glass: #{get-gradient('glass')};
+  
+  // Shadows
+  --shadow-subtle: #{get-shadow('subtle')};
+  --shadow-medium: #{get-shadow('medium')};
+  --shadow-large: #{get-shadow('large')};
+  --shadow-glow: #{get-shadow('glow')};
+  --shadow-text: #{get-shadow('text')};
+  
+  // Borders
+  --border-glass: #{get-border('glass')};
+  --border-accent: #{get-border('accent')};
+  --border-hover: #{get-border('hover')};
+}
+
+// === BODY BASE ===
+body {
+  font-family: $font-family-primary;
+  font-weight: get-font-weight('regular');
+  color: get-color('text-primary');
+  line-height: 1.6;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  // Overlay pour améliorer la lisibilité
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: get-z-index('background');
+    pointer-events: none;
+  }
+}
+
+// === FOCUS MANAGEMENT ===
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(get-color('accent-purple'), 0.5);
+  border-radius: get-border-radius('base');
+}
+
+// === SELECTION STYLES ===
+::selection {
+  background: rgba(get-color('accent-purple'), 0.3);
+  color: get-color('text-primary');
+}
+
+::-moz-selection {
+  background: rgba(get-color('accent-purple'), 0.3);
+  color: get-color('text-primary');
+}
+
+// === SCROLLBAR STYLES ===
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(get-color('text-primary'), 0.3);
+  border-radius: get-border-radius('full');
+  
+  &:hover {
+    background: rgba(get-color('text-primary'), 0.5);
+  }
+}
+
+// === REDUCED MOTION ===
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

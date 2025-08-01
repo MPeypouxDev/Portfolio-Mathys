@@ -1,0 +1,388 @@
+// ==========================================
+// FOOTER LAYOUT
+// ==========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
+// === MAIN FOOTER ===
+.footer-portfolio {
+  @include glass-effect;
+  border-top: get-border('glass');
+  padding: get-spacing('16') get-spacing('8') get-spacing('8');
+  text-align: center;
+  box-shadow: get-shadow('medium');
+  position: relative;
+  overflow: hidden;
+  margin-top: auto;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: get-gradient('primary');
+    opacity: 0.8;
+  }
+}
+
+// === FOOTER CONTENT CONTAINER ===
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: get-z-index('base');
+}
+
+// === FOOTER LOGO ===
+.footer-logo {
+  font-size: get-font-size('4xl');
+  font-weight: get-font-weight('extrabold');
+  @include gradient-text('primary');
+  margin-bottom: get-spacing('4');
+  
+  @include respond-to('sm') {
+    font-size: get-font-size('3xl');
+  }
+}
+
+// === FOOTER TAGLINE ===
+.footer-tagline {
+  color: get-color('text-secondary');
+  font-size: get-font-size('lg');
+  margin-bottom: get-spacing('4');
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  @include text-shadow;
+  line-height: 1.6;
+  
+  @include respond-to('sm') {
+    font-size: get-font-size('base');
+  }
+}
+
+// === FOOTER LOCATION ===
+.footer-location {
+  color: get-color('text-primary');
+  font-size: get-font-size('base');
+  margin-bottom: get-spacing('8');
+  @include flex-center;
+  gap: get-spacing('2');
+  @include text-shadow;
+  
+  .location-icon {
+    font-size: get-font-size('lg');
+  }
+}
+
+// === FOOTER CTA ===
+.footer-cta {
+  margin: get-spacing('8') 0 get-spacing('12');
+}
+
+// === SOCIAL LINKS ===
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: get-spacing('6');
+  margin-bottom: get-spacing('12');
+  flex-wrap: wrap;
+}
+
+.social-link {
+  width: 60px;
+  height: 60px;
+  @include glass-effect(0.1, 15px);
+  border-radius: get-border-radius('2xl');
+  @include flex-center;
+  text-decoration: none;
+  color: get-color('text-accent');
+  font-size: get-font-size('xl');
+  transition: all get-duration('slow');
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: get-gradient('primary');
+    opacity: 0;
+    transition: opacity get-duration('normal');
+    z-index: -1;
+  }
+  
+  &:hover {
+    transform: translateY(-5px) scale(1.05);
+    color: get-color('text-primary');
+    border-color: rgba(get-color('accent-purple'), 0.6);
+    box-shadow: get-shadow('glow');
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+  
+  // Tooltip
+  &::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: get-color('card-bg');
+    color: get-color('text-secondary');
+    padding: get-spacing('1') get-spacing('2');
+    border-radius: get-border-radius('md');
+    font-size: get-font-size('xs');
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity get-duration('normal');
+    pointer-events: none;
+    z-index: get-z-index('tooltip');
+  }
+  
+  &:hover::after {
+    opacity: 1;
+  }
+  
+  // Image handling
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+}
+
+// === CONTACT INFO ===
+.contact-info {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: get-spacing('8');
+  flex-wrap: wrap;
+  margin-bottom: get-spacing('12');
+  
+  @include respond-to('md') {
+    flex-direction: column;
+    gap: get-spacing('6');
+  }
+}
+
+.contact-item {
+  @include glass-effect(0.1, 15px);
+  border-radius: get-border-radius('xl');
+  padding: get-spacing('6');
+  text-align: center;
+  transition: get-transition('normal');
+  overflow: hidden;
+  width: 250px;
+  position: relative;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: get-gradient('glass');
+    opacity: 0;
+    transition: opacity get-duration('normal');
+  }
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: get-shadow('medium');
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+  
+  @include respond-to('md') {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.contact-icon {
+  font-size: get-font-size('2xl');
+  margin-bottom: get-spacing('2');
+  display: block;
+}
+
+.contact-label {
+  color: get-color('text-primary');
+  font-size: get-font-size('sm');
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: get-spacing('2');
+  font-weight: get-font-weight('semibold');
+}
+
+.contact-value {
+  color: get-color('text-primary');
+  font-weight: get-font-weight('medium');
+  @include text-shadow;
+  
+  a {
+    color: get-color('text-primary');
+    text-decoration: none;
+    transition: color get-duration('normal');
+    
+    &:hover {
+      color: get-color('accent-purple');
+    }
+  }
+}
+
+// === FOOTER DIVIDER ===
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(get-color('accent-purple'), 0.5),
+    transparent
+  );
+  margin: get-spacing('12') 0;
+}
+
+// === FOOTER BOTTOM ===
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: get-spacing('8');
+  
+  @include respond-to('md') {
+    flex-direction: column;
+    text-align: center;
+    gap: get-spacing('6');
+  }
+}
+
+.footer-copyright {
+  color: get-color('text-primary');
+  font-size: get-font-size('base');
+  display: flex;
+  align-items: center;
+  gap: get-spacing('4');
+  flex-wrap: wrap;
+  @include text-shadow;
+  
+  @include respond-to('sm') {
+    flex-direction: column;
+    gap: get-spacing('2');
+    text-align: center;
+  }
+}
+
+.footer-status {
+  @include glass-effect(0.1, 10px);
+  border-radius: get-border-radius('full');
+  padding: get-spacing('2') get-spacing('4');
+  color: get-color('text-primary');
+  font-size: get-font-size('sm');
+  font-weight: get-font-weight('semibold');
+  display: flex;
+  align-items: center;
+  gap: get-spacing('2');
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: get-color('accent-green');
+  border-radius: get-border-radius('full');
+  @include pulse;
+}
+
+.footer-links {
+  display: flex;
+  gap: get-spacing('8');
+  flex-wrap: wrap;
+  
+  @include respond-to('sm') {
+    justify-content: center;
+    gap: get-spacing('6');
+  }
+  
+  a {
+    color: get-color('text-primary');
+    text-decoration: none;
+    font-size: get-font-size('base');
+    transition: get-transition('normal');
+    position: relative;
+    padding: get-spacing('2') 0;
+    @include text-shadow;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: get-gradient('primary');
+      transition: width get-duration('normal');
+    }
+    
+    &:hover {
+      color: get-color('text-accent');
+      
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// === FOOTER ANIMATIONS ===
+.footer-portfolio {
+  .social-link {
+    &:nth-child(1) { animation-delay: 0.1s; }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+    &:nth-child(4) { animation-delay: 0.4s; }
+  }
+  
+  .contact-item {
+    &:nth-child(1) { animation-delay: 0.2s; }
+    &:nth-child(2) { animation-delay: 0.4s; }
+    &:nth-child(3) { animation-delay: 0.6s; }
+  }
+}
+
+// === FOOTER RESPONSIVE ===
+@include respond-to('xs') {
+  .footer-portfolio {
+    padding: get-spacing('12') get-spacing('4') get-spacing('6');
+  }
+  
+  .social-links {
+    gap: get-spacing('4');
+  }
+  
+  .social-link {
+    width: 50px;
+    height: 50px;
+    font-size: get-font-size('lg');
+  }
+  
+  .contact-item {
+    padding: get-spacing('4');
+  }
+  
+  .footer-links {
+    gap: get-spacing('4');
+    
+    a {
+      font-size: get-font-size('sm');
+    }
+  }
+}

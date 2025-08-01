@@ -1,0 +1,225 @@
+// ==========================================
+// ENTRY PAGE STYLES
+// ==========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
+// === ENTRY PAGE BODY ===
+.entry-page {
+  background-image: url("https://i.postimg.cc/kGJfD981/Chat-GPT-Image-1-ao-t-2025-13-18-46-2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 90vh;
+  font-weight: get-font-weight('bold');
+}
+
+// === ENTRY CONTENT CONTAINER ===
+.entry-content {
+  width: 100%;
+  @include flex-center(column);
+  z-index: get-z-index('content');
+  min-height: 100vh;
+  padding: get-spacing('8');
+}
+
+// === ENTRY TEXT ===
+.entry-text {
+  margin-top: 15rem;
+  text-align: center;
+  font-size: get-font-size('3xl');
+  background: get-gradient('glass');
+  border: get-border('glass');
+  box-shadow: get-shadow('medium');
+  @include text-shadow;
+  border-radius: get-border-radius('lg');
+  width: 70%;
+  z-index: get-z-index('content');
+  padding: get-spacing('6');
+  
+  p {
+    margin: 0;
+    line-height: 1.4;
+    color: get-color('text-primary');
+  }
+  
+  @include respond-to('md') {
+    width: 85%;
+    font-size: get-font-size('2xl');
+    margin-top: 12rem;
+    padding: get-spacing('5');
+  }
+  
+  @include respond-to('sm') {
+    width: 95%;
+    font-size: get-font-size('xl');
+    margin-top: 8rem;
+    padding: get-spacing('4');
+  }
+  
+  @include respond-to('xs') {
+    font-size: get-font-size('lg');
+    margin-top: 6rem;
+    padding: get-spacing('3');
+  }
+}
+
+// === ENTRY BUTTON CONTAINER ===
+.entry-button {
+  margin-top: get-spacing('8');
+  z-index: get-z-index('content');
+  
+  a {
+    text-decoration: none;
+  }
+  
+  button {
+    padding: get-spacing('4') get-spacing('8');
+    @include glass-effect;
+    @include text-shadow;
+    border-radius: get-border-radius('xl');
+    font-size: get-font-size('base');
+    font-weight: get-font-weight('semibold');
+    color: get-color('text-primary');
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: get-transition('normal');
+    position: relative;
+    overflow: hidden;
+    z-index: get-z-index('content');
+    border: get-border('glass');
+    
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        transparent 50%
+      );
+      opacity: 0;
+      transition: opacity get-duration('normal');
+    }
+    
+    &:hover {
+      background: get-gradient('primary');
+      transform: translateY(-3px);
+      box-shadow: get-shadow('glow');
+      
+      &::before {
+        opacity: 1;
+      }
+    }
+    
+    &:active {
+      transform: translateY(-1px) scale(0.98);
+    }
+    
+    @include respond-to('sm') {
+      padding: get-spacing('3') get-spacing('6');
+      font-size: get-font-size('sm');
+    }
+    
+    @include respond-to('xs') {
+      padding: get-spacing('3') get-spacing('5');
+      font-size: get-font-size('xs');
+    }
+  }
+}
+
+// === ENTRY LOGO (if needed) ===
+.entry-logo {
+  font-size: get-font-size('8xl');
+  font-weight: get-font-weight('extrabold');
+  @include gradient-text('primary');
+  text-align: center;
+  margin-top: get-spacing('8');
+  z-index: get-z-index('content');
+  position: relative;
+  
+  @include respond-to('md') {
+    font-size: get-font-size('7xl');
+  }
+  
+  @include respond-to('sm') {
+    font-size: get-font-size('6xl');
+  }
+  
+  @include respond-to('xs') {
+    font-size: get-font-size('5xl');
+  }
+}
+
+// === ENTRY ANIMATIONS ===
+.entry-content {
+  .entry-text {
+    @include fade-in(1.5s, 0.5s);
+  }
+  
+  .entry-button {
+    @include fade-in(1.5s, 1s);
+  }
+  
+  .entry-logo {
+    @include fade-in(1.5s, 0s);
+    
+    &.glow {
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+  }
+}
+
+// === ENTRY PAGE PARTICLES ===
+.entry-page {
+  .particles {
+    z-index: get-z-index('base');
+  }
+  
+  .particle {
+    animation-delay: var(--delay, 0s);
+    animation-duration: var(--duration, 6s);
+  }
+}
+
+// === ENTRY MOBILE OPTIMIZATIONS ===
+@include respond-to('sm') {
+  .entry-content {
+    padding: get-spacing('4');
+    min-height: 100vh;
+    justify-content: center;
+  }
+  
+  .entry-text {
+    margin-top: 0;
+  }
+  
+  .entry-button {
+    margin-top: get-spacing('6');
+  }
+}
+
+// === ENTRY ACCESSIBILITY ===
+@media (prefers-reduced-motion: reduce) {
+  .entry-content {
+    .entry-text,
+    .entry-button,
+    .entry-logo {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+// === ENTRY FOCUS STATES ===
+.entry-button button:focus {
+  outline: none;
+  box-shadow: 
+    get-shadow('glow'),
+    0 0 0 3px rgba(get-color('accent-purple'), 0.5);
+}

@@ -1,0 +1,332 @@
+// ==========================================
+// PORTFOLIO PAGE STYLES
+// ==========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
+// === PORTFOLIO BODY ===
+body {
+  background-image: url("https://i.postimg.cc/05hjmN57/generated-image-3d5b2ffb-ff6f-4db8-8127-30da7803b6c4.jpg");
+}
+
+// === PORTFOLIO CONTENT CONTAINER ===
+.portfolio-content {
+  display: flex;
+  flex-direction: column;
+  padding-top: get-spacing('20');
+  backdrop-filter: blur(2px);
+}
+
+// === SECTION BASE STYLES ===
+.intro-content,
+.about-me-content,
+.skills-content,
+.projects-content {
+  margin: get-spacing('12') get-spacing('8');
+  @include flex-center(column);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @include respond-to('sm') {
+    margin: get-spacing('8') get-spacing('4');
+  }
+}
+
+// === INTRO SECTION ===
+.intro-content {
+  .intro-title h1 {
+    text-align: center;
+    margin-bottom: get-spacing('8');
+    color: get-color('text-primary');
+    @include text-shadow;
+    font-size: get-font-size('4xl');
+    line-height: 1.2;
+    
+    @include respond-to('md') {
+      font-size: get-font-size('3xl');
+    }
+    
+    @include respond-to('sm') {
+      font-size: get-font-size('2xl');
+    }
+  }
+}
+
+.intro-container {
+  margin: get-spacing('8') 0;
+  color: get-color('text-secondary');
+  font-size: get-font-size('lg');
+  text-align: center;
+  max-width: 700px;
+  @include text-shadow;
+  
+  p {
+    margin-bottom: get-spacing('6');
+    line-height: 1.7;
+  }
+  
+  @include respond-to('sm') {
+    font-size: get-font-size('base');
+  }
+}
+
+// === INTRO CARDS ===
+.intro-content-card {
+  display: flex;
+  gap: get-spacing('8');
+  margin: get-spacing('12') 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  @include respond-to('sm') {
+    flex-direction: column;
+    align-items: center;
+    gap: get-spacing('4');
+  }
+}
+
+.first-card,
+.second-card,
+.third-card {
+  width: 280px;
+  height: 120px;
+  @include card(true);
+  text-align: center;
+  padding: get-spacing('6');
+  font-size: get-font-size('2xl');
+  font-weight: get-font-weight('bold');
+  color: get-color('text-primary');
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+  
+  p {
+    text-transform: uppercase;
+    margin-top: get-spacing('2');
+    font-size: get-font-size('sm');
+    letter-spacing: 0.5px;
+    font-weight: get-font-weight('medium');
+  }
+  
+  @include respond-to('sm') {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+// === ABOUT SECTION ===
+.about-image {
+  width: 100%;
+  display: flex;
+  gap: get-spacing('12');
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  img {
+    height: 400px;
+    width: auto;
+    border: 3px solid rgba(get-color('text-primary'), 0.3);
+    border-radius: get-border-radius('2xl');
+    box-shadow: get-shadow('large');
+    transition: get-transition('normal');
+    
+    &:hover {
+      transform: scale(1.02);
+      border-color: rgba(get-color('accent-purple'), 0.5);
+      box-shadow: get-shadow('large'), get-shadow('glow');
+    }
+    
+    @include respond-to('sm') {
+      height: 300px;
+    }
+  }
+  
+  @include respond-to('sm') {
+    flex-direction: column;
+    text-align: center;
+    gap: get-spacing('8');
+  }
+}
+
+.about-container {
+  flex: 1;
+  min-width: 400px;
+  @include card(false);
+  padding: get-spacing('8');
+  font-size: get-font-size('lg');
+  line-height: 1.7;
+  color: get-color('text-secondary');
+  @include text-shadow;
+  
+  @include respond-to('md') {
+    min-width: auto;
+    font-size: get-font-size('base');
+    padding: get-spacing('6');
+  }
+}
+
+// === SKILLS SECTION ===
+.skill-container,
+.project-container {
+  margin: get-spacing('8') 0;
+  color: get-color('text-secondary');
+  font-size: get-font-size('lg');
+  text-align: center;
+  max-width: 700px;
+  @include text-shadow;
+  
+  @include respond-to('sm') {
+    font-size: get-font-size('base');
+  }
+}
+
+// === CARDS (SKILLS & PROJECTS) ===
+.project-card,
+.skill-card {
+  @include card(true);
+  margin: get-spacing('8') 0;
+  width: 90%;
+  max-width: 800px;
+  overflow: hidden;
+  
+  @include respond-to('sm') {
+    width: 95%;
+  }
+}
+
+// === SKILL ICONS ===
+.icon-skill,
+.icon-skill-bis {
+  width: 100px;
+  height: 100px;
+  border-radius: get-border-radius('2xl');
+  @include flex-center;
+  font-size: get-font-size('5xl');
+  margin: get-spacing('8') auto;
+  box-shadow: get-shadow('medium');
+  @include glass-effect;
+  
+  @include respond-to('sm') {
+    width: 80px;
+    height: 80px;
+    font-size: get-font-size('4xl');
+  }
+}
+
+// === PROJECT IMAGES ===
+.image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+// === TEXT CONTENT ===
+.text {
+  @include glass-effect;
+  padding: get-spacing('8');
+  text-align: center;
+  color: get-color('text-secondary');
+  @include text-shadow;
+  
+  h2 {
+    color: get-color('text-primary');
+    margin-bottom: get-spacing('4');
+    font-size: get-font-size('xl');
+    font-weight: get-font-weight('semibold');
+  }
+  
+  p {
+    line-height: 1.6;
+    font-size: get-font-size('base');
+  }
+  
+  @include respond-to('sm') {
+    padding: get-spacing('6');
+    
+    h2 {
+      font-size: get-font-size('lg');
+    }
+    
+    p {
+      font-size: get-font-size('sm');
+    }
+  }
+}
+
+// === BUTTON CONTAINER ===
+.button {
+  @include glass-effect;
+  @include text-shadow;
+  color: get-color('text-accent');
+  gap: get-spacing('2');
+  padding: get-spacing('6');
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  
+  @include respond-to('sm') {
+    padding: get-spacing('4');
+    gap: get-spacing('1');
+  }
+}
+
+// === PROJECT/GIT BUTTONS ===
+#openProject,
+#openGit {
+  background: get-gradient('primary');
+  color: get-color('text-primary');
+  font-weight: get-font-weight('semibold');
+  padding: get-spacing('3') get-spacing('6');
+  border: get-border('glass');
+  border-radius: get-border-radius('lg');
+  text-decoration: none;
+  display: inline-block;
+  transition: get-transition('normal');
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: get-shadow('medium');
+  }
+  
+  @include respond-to('sm') {
+    font-size: get-font-size('xs');
+    padding: get-spacing('2') get-spacing('3');
+  }
+}
+
+// === RESPONSIVE ADJUSTMENTS ===
+@include respond-to('xs') {
+  .intro-content,
+  .about-me-content,
+  .skills-content,
+  .projects-content {
+    margin: get-spacing('8') get-spacing('4');
+  }
+  
+  .about-container {
+    padding: get-spacing('6');
+    font-size: get-font-size('sm');
+  }
+  
+  .button {
+    padding: get-spacing('4');
+  }
+  
+  .card-button,
+  #openProject,
+  #openGit {
+    font-size: get-font-size('xs');
+    padding: get-spacing('2') get-spacing('3');
+  }
+}
