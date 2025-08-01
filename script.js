@@ -1,5 +1,6 @@
 // Variables pour l'état de la musique
 let musicState = "stopped";
+let currentPlaylistData = null;
 
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Portfolio JavaScript chargé !");
@@ -14,7 +15,188 @@ document.addEventListener("DOMContentLoaded", function () {
   initDynamicStyles();
   initErrorHandling();
   initMusicButton();
+  restoreMusicFromStorage();
 });
+
+function restoreMusicFromStorage() {
+  console.log("Vérification musique sauvegardée...");
+
+  const savedMusicState = localStorage.getItem("musicState");
+  const savedMusicData = localStorage.getItem("musicData");
+
+  if (savedMusicState && savedMusicData && savedMusicState !== "stopped") {
+    try {
+      currentPlaylistData = JSON.parse(savedMusicData);
+      musicState = savedMusicState;
+
+      if (musicState === "minimized") {
+        // La musique était minimisée, continuer en arrière-plan
+        updateMusicButtonForRestoredMusic();
+        showNotification("🎵 Musique restaurée en arrière-plan", "success");
+
+        // Relancer automatiquement la musique
+        setTimeout(() => {
+          showMusicModalSilent(currentPlaylistData);
+        }, 300);
+      }
+    } catch (error) {
+      clearMusicStorage();
+    }
+  } else {
+  }
+}
+
+function updateMusicButtonForRestoredMusic() {
+  const musicButton = document.querySelector("#musicButton");
+  if (musicButton && musicState === "minimized") {
+    musicButton.innerHTML = "🎧";
+    musicButton.style.background = "var(--gradient-1)";
+    musicButton.style.animation = "pulse 2s infinite";
+    musicButton.title = "Musique en cours - Cliquer pour arrêter";
+  }
+}
+
+function showMusicModalSilent(playlistData) {
+  const existingModal = document.querySelector("#musicModal");
+  if (existingModal) {
+    document.body.removeChild(existingModal);
+  }
+
+  const playlistId = extractPlaylistId(playlistData.url);
+
+  const modal = document.createElement("div");
+  modal.id = "musicModal";
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  `;
+
+  modal.innerHTML = `
+    <div style="
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: var(--border-glass);
+      border-radius: 20px;
+      padding: 1.5rem;
+      max-width: 800px;
+      width: 95%;
+      max-height: 85vh;
+      text-align: center;
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    ">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-shrink: 0;">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="font-size: 1.5rem;">🎵</span>
+          <h3 style="color: var(--text-primary); margin: 0;">${
+            playlistData.title
+          }</h3>
+        </div>
+        <button id="closeMusicPlayer" style="
+          background: var(--glass-bg);
+          border: var(--border-glass);
+          color: var(--text-primary);
+          font-size: 1.2rem;
+          cursor: pointer;
+          padding: 0.5rem;
+          border-radius: 8px;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        ">✕</button>
+      </div>
+      
+      <div style="
+        background: #000;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        flex-shrink: 0;
+      ">
+        ${
+          playlistId
+            ? `<iframe 
+            width="100%" 
+            height="350" 
+            src="https://www.youtube.com/embed/videoseries?list=${playlistId}&autoplay=1&loop=1" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen
+            style="border-radius: 12px;">
+          </iframe>`
+            : `<div style="height: 350px; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
+            <p>URL de playlist non valide</p>
+          </div>`
+        }
+      </div>
+      
+      <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; flex-shrink: 0;">
+        <button id="minimizePlayer" style="
+          padding: 0.75rem 1.25rem;
+          background: var(--gradient-1);
+          border: var(--border-glass);
+          border-radius: 8px;
+          color: white;
+          cursor: pointer;
+          font-size: 0.9rem;
+          font-weight: 600;
+        ">📐 Réduire</button>
+        
+        <button id="openInYoutube" style="
+          padding: 0.75rem 1.25rem;
+          background: var(--glass-bg);
+          border: var(--border-glass);
+          border-radius: 8px;
+          color: var(--text-secondary);
+          cursor: pointer;
+          font-size: 0.9rem;
+        ">🔗 YouTube</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  // Événements du modal
+  modal.querySelector("#closeMusicPlayer").addEventListener("click", () => {
+    modal.style.opacity = "0";
+    setTimeout(() => {
+      if (document.body.contains(modal)) {
+        document.body.removeChild(modal);
+      }
+      stopMusic();
+    }, 300);
+  });
+
+  modal
+    .querySelector("#minimizePlayer")
+    .addEventListener("click", minimizePlayer);
+  modal.querySelector("#openInYoutube").addEventListener("click", () => {
+    window.open(playlistData.url, "_blank");
+    showNotification("🔗 Ouvert sur YouTube", "info");
+  });
+}
+
+function clearMusicStorage() {
+  localStorage.removeItem("musicState");
+  localStorage.removeItem("musicData");
+  localStorage.removeItem("musicTimestamp");
+}
 
 // Boutons de la playlist
 function initMusicButton() {
@@ -91,6 +273,14 @@ function initMusicButton() {
       musicButton.style.transform = "translateX(0)";
     }, 500);
   }, 2000);
+
+  if (!currentPlaylistData) {
+    currentPlaylistData = {
+      url: "https://www.youtube.com/watch?v=sF80I-TQiW0&list=PLnYQHW31BxfUXA6rD3b6zqbhXJHSKxrgQ",
+      title: "Ma Playlist de Dev 🎧",
+      description: "Musique pour coder et se concentrer",
+    };
+  }
 }
 
 // ===== MODAL MUSIQUE =====
@@ -215,7 +405,6 @@ function showMusicModal(playlistData) {
     modal.querySelector("div").style.transform = "scale(1)";
   }, 10);
 
-
   const closeModal = () => {
     modal.style.opacity = "0";
     modal.querySelector("div").style.transform = "scale(0.8)";
@@ -245,7 +434,6 @@ function showMusicModal(playlistData) {
 
 // ===== FONCTIONS POUR GÉRER LA MUSIQUE - NOUVELLES =====
 function stopMusic() {
-
   // Supprimer complètement le modal (et donc l'iframe YouTube)
   const existingModal = document.querySelector("#musicModal");
   if (existingModal) {
@@ -261,8 +449,9 @@ function stopMusic() {
     musicButton.title = "Écouter de la musique";
   }
 
-  musicState = 'stopped';
+  musicState = "stopped";
   showNotification("🔇 Musique arrêtée", "info");
+  clearMusicStorage();
 }
 
 function minimizePlayer() {
@@ -280,8 +469,11 @@ function minimizePlayer() {
         musicButton.title = "Cliquer pour arrêter la musique";
       }
 
-      musicState = 'minimized';
-      
+      musicState = "minimized";
+      localStorage.setItem("musicState", musicState);
+      localStorage.setItem("musicData", JSON.stringify(currentPlaylistData));
+      localStorage.setItem("musicTimestamp", Date.now().toString());
+
       showNotification(
         "🎵 Musique en arrière-plan (clic pour arrêter)",
         "info"
