@@ -254,13 +254,13 @@ body::before {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(15, 15, 35, 0.95);
+  background: var(--glass-bg);
   backdrop-filter: blur(20px);
   border-bottom: var(--border-glass);
   z-index: 1000;
   padding: 1rem 0;
   transition: all 0.3s ease;
-  box-shadow: var(--shadow-medium);
+  box-shadow: var(--glass-bg);
 }
 
 .nav-container {
@@ -312,7 +312,7 @@ body::before {
 
 .nav-links a:hover {
   color: var(--text-primary);
-  background: var(--gradient-1);
+ background: var(--glass-bg);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
@@ -1020,41 +1020,6 @@ body::before {
   background: var(--accent-green);
   border-radius: 50%;
   animation: pulse 2s infinite;
-}
-
-.footer-links {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  position: relative;
-  padding: 0.5rem 0;
-  text-shadow: var(--shadow-text);
-}
-
-.footer-links a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--gradient-1);
-  transition: width 0.3s ease;
-}
-
-.footer-links a:hover {
-  color: var(--text-accent);
-}
-
-.footer-links a:hover::after {
-  width: 100%;
 }
 
 /* BOUTON RETOUR EN HAUT */
