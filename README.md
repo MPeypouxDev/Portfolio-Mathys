@@ -2,7 +2,7 @@
 
 ## Aperçu
 
-![Aperçu Portfolio](./assets/Portfolio.png)
+![Aperçu Portfolio](/assets/portfolio.png)
 
 ---
 
