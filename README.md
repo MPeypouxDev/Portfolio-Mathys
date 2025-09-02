@@ -1,4 +1,8 @@
+---
+
 ![Aperçu Portfolio](./assets/Portfolio.png)
+
+---
 
 Portfolio - Mathys P. | Développeur Web
 Un portfolio moderne et interactif présentant mes compétences et réalisations en développement web frontend.
