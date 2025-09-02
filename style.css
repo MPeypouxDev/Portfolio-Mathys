@@ -612,10 +612,6 @@ body::before {
   align-items: center;
 }
 
-#musicButton {
-  margin-top: 10rem;
-}
-
 .card-button,
 #openProject,
 #openGit {
@@ -709,6 +705,10 @@ body::before {
   display: flex;
   flex-direction: column;
  }
+
+ #musicButton {
+  margin-top: 10rem;
+}
 
  .intro-title {
   margin-top: 8rem;
