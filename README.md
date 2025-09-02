@@ -1,9 +1,5 @@
 ---
-
-## Aperçu
-
 ![Aperçu Portfolio](/assets/portfolio.png)
-
 ---
 
 Portfolio - Mathys P. | Développeur Web
