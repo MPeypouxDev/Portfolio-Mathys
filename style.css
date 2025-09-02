@@ -612,6 +612,10 @@ body::before {
   align-items: center;
 }
 
+#musicButton {
+  margin-top: 10rem;
+}
+
 .card-button,
 #openProject,
 #openGit {
@@ -700,6 +704,15 @@ body::before {
   .logo {
     font-size: 12px;
   }
+
+ ul.nav-links {
+  display: flex;
+  flex-direction: column;
+ }
+
+ .intro-title {
+  margin-top: 8rem;
+ }
 
   .intro-content,
   .about-me-content,
@@ -923,6 +936,7 @@ body::before {
 
 .contact-info {
   display: flex;
+  flex-direction: column;
   width: 100%;
   align-items: center;
   justify-content: center;
