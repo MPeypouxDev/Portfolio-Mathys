@@ -1,6 +1,6 @@
 # 🚀 Portfolio - Mathys P. | Développeur Web
 
-[![Portfolio Preview](portfolio.png)](https://github.com/MPeypouxDev/portfolio)
+[![Portfolio Preview](./assets/portfolio.png)](https://github.com/MPeypouxDev/portfolio)
 
 Un portfolio moderne et interactif présentant mes compétences et réalisations en développement web frontend avec des effets visuels immersifs et une expérience utilisateur soignée.
 
