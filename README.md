@@ -1,154 +1,200 @@
+# 🚀 Portfolio - Mathys P. | Développeur Web
 
-![Aperçu Portfolio](/assets/portfolio.png)
+[![Portfolio Preview](portfolio.png)](https://github.com/MPeypouxDev/portfolio)
 
-Portfolio - Mathys P. | Développeur Web
-Un portfolio moderne et interactif présentant mes compétences et réalisations en développement web frontend.
-Description :
-Portfolio personnel développé en HTML, CSS et JavaScript vanilla, mettant en avant une interface utilisateur moderne avec des effets visuels immersifs et une expérience utilisateur soignée.
-Fonctionnalités :
-Interface et Design
+Un portfolio moderne et interactif présentant mes compétences et réalisations en développement web frontend avec des effets visuels immersifs et une expérience utilisateur soignée.
 
-Design glassmorphism avec effets de transparence et de flou
-Animations fluides et transitions CSS avancées
-Responsive design adaptatif pour tous les appareils
-Navigation smooth scroll entre les sections
+## 📋 Sommaire
 
-Effets Visuels
+- [📖 Description](#-description)
+- [✨ Fonctionnalités](#-fonctionnalités)
+- [🛠️ Technologies Utilisées](#️-technologies-utilisées)
+- [📁 Structure du Projet](#-structure-du-projet)
+- [⚡ Installation et Utilisation](#-installation-et-utilisation)
+- [🚀 Déploiement](#-déploiement)
+- [🎨 Sections du Portfolio](#-sections-du-portfolio)
+- [🎛️ Personnalisation](#️-personnalisation)
+- [📱 Responsivité](#-responsivité)
+- [🔧 Fonctionnalités Avancées](#-fonctionnalités-avancées)
+- [🌐 Compatibilité Navigateurs](#-compatibilité-navigateurs)
+- [⚡ Performance](#-performance)
+- [🤝 Contribution](#-contribution)
+- [📄 Licence](#-licence)
+- [📞 Contact](#-contact)
 
-Pluie de code animée en arrière-plan (activable/désactivable)
-Effets parallax et animations au scroll
-Cartes interactives avec transformations 3D
-Système de notifications toast
+## 📖 Description
 
-Fonctionnalités Interactives
+Portfolio personnel développé en **HTML**, **CSS** et **JavaScript vanilla**, mettant en avant une interface utilisateur moderne avec des effets visuels immersifs et une expérience utilisateur soignée.
 
-Lecteur de musique intégré avec playlist YouTube
-Sauvegarde de l'état via localStorage
-Bouton retour en haut avec animation
-Effets de survol avancés sur tous les éléments
+## ✨ Fonctionnalités
 
-Technologies Utilisées :
+### 🎨 Interface et Design
+- **Design glassmorphism** avec effets de transparence et de flou
+- **Animations fluides** et transitions CSS avancées
+- **Responsive design** adaptatif pour tous les appareils
+- **Navigation smooth scroll** entre les sections
 
-HTML5 - Structure sémantique
-CSS3 - Animations, glassmorphism, responsive design
-JavaScript ES6+ - Interactivité et animations dynamiques
-API Web - LocalStorage pour la persistance
-YouTube Embed API - Intégration musicale
+### 🎭 Effets Visuels
+- **Pluie de code animée** en arrière-plan (activable/désactivable)
+- **Effets parallax** et animations au scroll
+- **Cartes interactives** avec transformations 3D
+- **Système de notifications** toast
 
-Structure du Projet :
+### 🔄 Fonctionnalités Interactives
+- **Lecteur de musique intégré** avec playlist YouTube
+- **Sauvegarde de l'état** via localStorage
+- **Bouton retour en haut** avec animation
+- **Effets de survol avancés** sur tous les éléments
+
+## 🛠️ Technologies Utilisées
+
+| Technologie | Usage |
+|-------------|-------|
+| **HTML5** | Structure sémantique |
+| **CSS3** | Animations, glassmorphism, responsive design |
+| **JavaScript ES6+** | Interactivité et animations dynamiques |
+| **API Web** | LocalStorage pour la persistance |
+| **YouTube Embed API** | Intégration musicale |
+
+## 📁 Structure du Projet
+
+```
 portfolio/
 │
-├── entry.html          # Page d'accueil avec effet de pluie de code
-├── portfolio.html      # Page principale du portfolio
-├── style.css          # Styles globaux avec variables CSS
-├── entry.js           # Scripts pour la page d'entrée
-├── script.js          # Scripts pour le portfolio principal
-└── README.md          # Documentation
-└── assets/          
-    ├── image1.jpg
-    ├── logo.png
-    └── photo-profil.jpg
-Installation et Utilisation :
-Prérequis
+├── 📄 entry.html          # Page d'accueil avec effet de pluie de code
+├── 📄 portfolio.html      # Page principale du portfolio
+├── 🎨 style.css          # Styles globaux avec variables CSS
+├── ⚡ entry.js           # Scripts pour la page d'entrée
+├── ⚡ script.js          # Scripts pour le portfolio principal
+├── 📖 README.md          # Documentation
+└── 📁 assets/          
+    ├── 🖼️ image1.jpg
+    ├── 🏷️ logo.png
+    └── 👤 photo-profil.jpg
+```
 
-Navigateur web moderne supportant ES6+
-Serveur web local (optionnel pour le développement)
+## ⚡ Installation et Utilisation
 
-Installation
+### 📋 Prérequis
+- Navigateur web moderne supportant ES6+
+- Serveur web local (optionnel pour le développement)
 
-Clonez le repository
+### 🔧 Installation
 
-bashgit clone https://github.com/MPeypouxDev/portfolio
-cd portfolio
+1. **Clonez le repository**
+   ```bash
+   git clone https://github.com/MPeypouxDev/portfolio
+   cd portfolio
+   ```
 
-Ouvrez entry.html dans votre navigateur ou servez via un serveur local
+2. **Ouvrez entry.html dans votre navigateur** ou servez via un serveur local
+   ```bash
+   # Avec Python
+   python -m http.server 8000
+   
+   # Avec Node.js (live-server)
+   npx live-server
+   ```
 
-bash# Avec Python
-python -m http.server 8000
+## 🚀 Déploiement
 
-# Avec Node.js (live-server)
-npx live-server
-Déploiement
-Le portfolio est optimisé pour un déploiement sur des plateformes statiques comme :
+Le portfolio est optimisé pour un déploiement sur des plateformes statiques :
 
-Netlify
-Vercel
-GitHub Pages
+- 🟢 **Netlify**
+- ⚡ **Vercel**
+- 🐙 **GitHub Pages**
 
-Sections du Portfolio :
+## 🎨 Sections du Portfolio
 
-Accueil - Présentation avec effets visuels
-À propos - Informations personnelles et parcours
-Compétences - Stack technique avec cartes interactives
-Projets - Réalisations avec liens vers démos et code source
-Contact - Informations de contact et liens sociaux
+| Section | Description |
+|---------|-------------|
+| **🏠 Accueil** | Présentation avec effets visuels |
+| **👨‍💻 À propos** | Informations personnelles et parcours |
+| **💡 Compétences** | Stack technique avec cartes interactives |
+| **🚀 Projets** | Réalisations avec liens vers démos et code source |
+| **📞 Contact** | Informations de contact et liens sociaux |
 
-Personnalisation :
-Variables CSS
-Le thème peut être personnalisé via les variables CSS définies dans :root :
-css:root {
+## 🎛️ Personnalisation
+
+### 🎨 Variables CSS
+Le thème peut être personnalisé via les variables CSS définies dans `:root` :
+
+```css
+:root {
   --primary-bg: rgba(15, 15, 35, 0.85);
   --accent-purple: #8b5cf6;
   --accent-blue: #06b6d4;
   /* ... autres variables */
 }
-Contenu
+```
 
-Modifiez les textes directement dans les fichiers HTML
-Remplacez les images par vos propres visuels
-Adaptez les liens de projets dans portfolio.html
+### 📝 Contenu
+- Modifiez les textes directement dans les fichiers HTML
+- Remplacez les images par vos propres visuels
+- Adaptez les liens de projets dans `portfolio.html`
 
-Responsivité :
+## 📱 Responsivité
+
 Le portfolio est entièrement responsive avec :
 
-Breakpoints optimisés pour mobile, tablette et desktop
-Navigation adaptative
-Grilles flexibles avec CSS Grid et Flexbox
-Images et médias adaptatifs
+- ✅ **Breakpoints optimisés** pour mobile, tablette et desktop
+- ✅ **Navigation adaptative**
+- ✅ **Grilles flexibles** avec CSS Grid et Flexbox
+- ✅ **Images et médias adaptatifs**
 
-Fonctionnalités Avancées :
-Système de Musique
+## 🔧 Fonctionnalités Avancées
 
-Intégration YouTube avec autoplay
-États persistants (lecture/pause/minimisé)
-Interface modale responsive
-Notifications utilisateur
+### 🎵 Système de Musique
+- Intégration YouTube avec autoplay
+- États persistants (lecture/pause/minimisé)
+- Interface modale responsive
+- Notifications utilisateur
 
-Effets Visuels
+### 🎭 Effets Visuels
+- Animations CSS keyframes personnalisées
+- Transformations 3D sur hover
+- Intersection Observer pour les animations au scroll
+- Particules de code animées
 
-Animations CSS keyframes personnalisées
-Transformations 3D sur hover
-Intersection Observer pour les animations au scroll
-Particules de code animées
+## 🌐 Compatibilité Navigateurs
 
-Compatibilité Navigateurs :
+| Navigateur | Version Minimale |
+|-----------|------------------|
+| 🔵 Chrome | 70+ |
+| 🟠 Firefox | 65+ |
+| 🔵 Safari | 12+ |
+| 🟢 Edge | 79+ |
 
-Chrome 70+
-Firefox 65+
-Safari 12+
-Edge 79+
+## ⚡ Performance
 
-Performance :
+- ✅ **Chargement optimisé** avec images compressées
+- ✅ **CSS et JS minifiés** en production
+- ✅ **Animations GPU** pour des performances fluides
+- ✅ **Lazy loading** pour les sections non visibles
 
-Chargement optimisé avec images compressées
-CSS et JS minifiés en production
-Animations GPU pour des performances fluides
-Lazy loading pour les sections non visibles
+## 🤝 Contribution
 
-Contribution :
 Les contributions sont les bienvenues ! N'hésitez pas à :
 
-Fork le projet
-Créer une branche feature (git checkout -b feature/amelioration)
-Commit vos changements (git commit -m 'Ajout d'une fonctionnalité')
-Push sur la branche (git push origin feature/amelioration)
-Ouvrir une Pull Request
+1. 🍴 **Fork** le projet
+2. 🌿 **Créer une branche** feature (`git checkout -b feature/amelioration`)
+3. ✅ **Commit** vos changements (`git commit -m 'Ajout d'une fonctionnalité'`)
+4. 📤 **Push** sur la branche (`git push origin feature/amelioration`)
+5. 🔄 **Ouvrir une Pull Request**
 
-Licence :
-Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
-Contact :
-Mathys P. - Développeur Web
-📧 m.peypouxdev@gmail.com
-🔗 LinkedIn
-🐙 GitHub
-📍 Grenoble, France
+## 📄 Licence
+
+Ce projet est sous licence **MIT**. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+## 📞 Contact
+
+**Mathys P.** - Développeur Web
+
+- 📧 **Email** : [m.peypouxdev@gmail.com](mailto:m.peypouxdev@gmail.com)
+- 🔗 **LinkedIn** : [linkedin.com/in/mathys-peypoux](https://linkedin.com/in/mathys-peypoux)
+- 🐙 **GitHub** : [github.com/MPeypouxDev](https://github.com/MPeypouxDev)
+- 📍 **Localisation** : Grenoble, France
+
+---
+
+⭐ **N'hésitez pas à mettre une étoile si ce projet vous a plu !**
